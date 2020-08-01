@@ -17,13 +17,18 @@ import (
 	"github.com/go-developer/go-util/util"
 )
 
+var projectInstance *Project
+
 // NewProjectInstance 实例化项目管理
 //
 // Author : go_developer@163.com<张德满>
 //
 // Date : 2020/07/25 20:36:43
 func NewProjectInstance() *Project {
-	return &Project{}
+	if nil == projectInstance {
+		projectInstance = &Project{}
+	}
+	return projectInstance
 }
 
 // ExtraProjectInfo 项目扩展信息
