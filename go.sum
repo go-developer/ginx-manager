@@ -21,6 +21,10 @@ github.com/go-developer/ginx-dao v0.0.0-20200801130234-d29fe8a73bce h1:rFFYDMp/1
 github.com/go-developer/ginx-dao v0.0.0-20200801130234-d29fe8a73bce/go.mod h1:U8rdfM2rgPdypqLhl/T6xcLnH5mEC6MpkV4gCrfphp8=
 github.com/go-developer/ginx-dao v0.0.0-20200801144337-ec01ec9b537a h1:wy3z4EhFWOodE+ZPzviBXwlti2Q6EgH6lMzoy0HFuNY=
 github.com/go-developer/ginx-dao v0.0.0-20200801144337-ec01ec9b537a/go.mod h1:U8rdfM2rgPdypqLhl/T6xcLnH5mEC6MpkV4gCrfphp8=
+github.com/go-developer/ginx-dao v0.0.0-20200830152258-f3753db6fe64 h1:2O8hs0ArhyXWXopgn+PfbTabpJgq2zG1CF2bEWwYxpk=
+github.com/go-developer/ginx-dao v0.0.0-20200830152258-f3753db6fe64/go.mod h1:7jmsIszCD9HFbJR9E9ciOzgvQeKnTUhe01QSFOTEVf0=
+github.com/go-developer/ginx-dao v0.0.0-20200901142618-511f279a6ea5 h1:dVKtg02XOH3O/U+RK4euFqmOLxqUqU0A1TC0Ri9cIQI=
+github.com/go-developer/ginx-dao v0.0.0-20200901142618-511f279a6ea5/go.mod h1:7jmsIszCD9HFbJR9E9ciOzgvQeKnTUhe01QSFOTEVf0=
 github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c h1:t+4uspfEu4WLG5Cih29RBCNDy5/2jVPXz0xwlshWjXE=
 github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c/go.mod h1:q4YBmXRTnWKTCPgiUmRcZAFrQZNzdOpaBmTvnzBvX/w=
 github.com/go-developer/go-util v0.0.0-20200718165933-c5fc48b8e207/go.mod h1:Bpx0s6Atw8UHhYh3hAmPNkII0A3Nv8KydIBQB4zXWbQ=
@@ -28,6 +32,8 @@ github.com/go-developer/go-util v0.0.0-20200725141621-e10d38524a2e h1:c20JwyHRiE
 github.com/go-developer/go-util v0.0.0-20200725141621-e10d38524a2e/go.mod h1:BnKvfLTrsWDC1uZMHYvJcea29VG5T+dM/muQwb7XxrU=
 github.com/go-developer/gorm-mysql v0.0.0-20200727151801-4d663aa86396 h1:L8Dyg1rXcXZtL9M5x8tabgmMSJc/YOnsrB9xP5oqrIo=
 github.com/go-developer/gorm-mysql v0.0.0-20200727151801-4d663aa86396/go.mod h1:LQ+xOltsUNU9aa4/wyyXo6ngrRG7bBa3EjgghEtln6Y=
+github.com/go-developer/gorm-mysql v0.0.0-20200802121817-f502e27ee318 h1:tbQFvSBaQmDn+WsGG1787XCnOR1j0aABCecesPVXmWQ=
+github.com/go-developer/gorm-mysql v0.0.0-20200802121817-f502e27ee318/go.mod h1:LQ+xOltsUNU9aa4/wyyXo6ngrRG7bBa3EjgghEtln6Y=
 github.com/go-developer/snowflake v0.0.0-20200725132839-26c77895e841 h1:aTyW5LfJhTTCayS3R9f6PSNDYOz6UdV8SSVOYvL7baM=
 github.com/go-developer/snowflake v0.0.0-20200725132839-26c77895e841/go.mod h1:qcu9GXjMEFahuoC0XU8wZ+DlB8nRR7qrmNhZfP0ZAdI=
 github.com/go-playground/assert/v2 v2.0.1 h1:MsBgLAaY856+nPRTKrp3/OZK38U/wa0CcBYNjji3q3A=
