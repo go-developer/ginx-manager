@@ -35,16 +35,7 @@ type scheme struct{}
 // Author : go_developer@163.com<张德满>
 //
 // Date : 2020/08/30 23:32:55
-func (s *scheme) CreateScheme(ctx *gin.Context, scheme string) (uint64, error) {
-	return 0, nil
-}
-
-// CreateMethod 创建请求方法
-//
-// Author : go_developer@163.com<张德满>
-//
-// Date : 2020/08/30 23:34:26
-func (s *scheme) CreateMethod(ctx *gin.Context, scheme string) (*define.Scheme, error) {
+func (s *scheme) CreateScheme(ctx *gin.Context, scheme string) (*define.Scheme, error) {
 	schemeData := &define.Scheme{
 		Scheme:       scheme,
 		Status:       define.APIParamStatusUsing,
@@ -58,6 +49,15 @@ func (s *scheme) CreateMethod(ctx *gin.Context, scheme string) (*define.Scheme, 
 		return nil, err
 	}
 	return schemeData, nil
+}
+
+// CreateMethod 创建请求方法
+//
+// Author : go_developer@163.com<张德满>
+//
+// Date : 2020/08/30 23:34:26
+func (s *scheme) CreateMethod(ctx *gin.Context, scheme string) (*define.Method, error) {
+	return nil, nil
 }
 
 // GetAllScheme 获取全部scheme列表
