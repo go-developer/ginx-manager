@@ -12,6 +12,7 @@
 package core
 
 import (
+	"errors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-developer/ginx-dao/dao"
 	"github.com/go-developer/ginx-dao/define"
@@ -51,13 +52,15 @@ func (s *scheme) CreateScheme(ctx *gin.Context, scheme string) (*define.Scheme, 
 	return schemeData, nil
 }
 
-// CreateMethod 创建请求方法
+// SoftDelete 软删除scheme
 //
 // Author : go_developer@163.com<张德满>
-//
-// Date : 2020/08/30 23:34:26
-func (s *scheme) CreateMethod(ctx *gin.Context, scheme string) (*define.Method, error) {
-	return nil, nil
+func (s *scheme) SoftDelete(ctx *gin.Context, schemeID uint64, currentStatus uint) error {
+	dbClient := godb.DB.GetDBClient(ctx, false)
+	if affectRows, err := dao.Scheme.ChangeStatus(dbClient, schemeID, currentStatus, define.SchemeStatusForbbiden); nil != err || affectRows < 1 {
+		return errors.New("更新失败, scheme不存在或状态异常")
+	}
+	return nil
 }
 
 // GetAllScheme 获取全部scheme列表

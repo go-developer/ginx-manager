@@ -27,6 +27,8 @@ github.com/go-developer/ginx-dao v0.0.0-20200901142618-511f279a6ea5 h1:dVKtg02XO
 github.com/go-developer/ginx-dao v0.0.0-20200901142618-511f279a6ea5/go.mod h1:7jmsIszCD9HFbJR9E9ciOzgvQeKnTUhe01QSFOTEVf0=
 github.com/go-developer/ginx-dao v0.0.0-20200901152355-4cd19cb76174 h1:Cy72GgXBw/PebTPfzUc/ERz6REg8EG/CJHvJREh62t8=
 github.com/go-developer/ginx-dao v0.0.0-20200901152355-4cd19cb76174/go.mod h1:7jmsIszCD9HFbJR9E9ciOzgvQeKnTUhe01QSFOTEVf0=
+github.com/go-developer/ginx-dao v0.0.0-20200903151247-5500afbe7212 h1:kppqeHYnSw99WYn1BU+yttWb8oOEfeQOf+fQHzYoEj8=
+github.com/go-developer/ginx-dao v0.0.0-20200903151247-5500afbe7212/go.mod h1:7jmsIszCD9HFbJR9E9ciOzgvQeKnTUhe01QSFOTEVf0=
 github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c h1:t+4uspfEu4WLG5Cih29RBCNDy5/2jVPXz0xwlshWjXE=
 github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c/go.mod h1:q4YBmXRTnWKTCPgiUmRcZAFrQZNzdOpaBmTvnzBvX/w=
 github.com/go-developer/go-util v0.0.0-20200718165933-c5fc48b8e207/go.mod h1:Bpx0s6Atw8UHhYh3hAmPNkII0A3Nv8KydIBQB4zXWbQ=
