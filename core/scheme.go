@@ -70,3 +70,14 @@ func (s *scheme) GetAllScheme(ctx *gin.Context) ([]*define.Scheme, error) {
 	dbClient := godb.DB.GetDBClient(ctx, true)
 	return dao.Scheme.GetAllScheme(dbClient)
 }
+
+// UpdateScheme 更新scheme
+//
+// Author : go_developer@163.com<张德满>
+func (s *scheme) UpdateScheme(ctx *gin.Context, schemeID uint64, schemeName string) error {
+	dbClient := godb.DB.GetDBClient(ctx, false)
+	if affectRows, err := dao.Scheme.Update(dbClient, schemeID, schemeName); affectRows < 1 || nil != err {
+		return errors.New("更新scheme信息失败")
+	}
+	return nil
+}
