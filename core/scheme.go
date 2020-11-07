@@ -13,6 +13,7 @@ package core
 
 import (
 	"errors"
+
 	"github.com/gin-gonic/gin"
 	"github.com/go-developer/ginx-dao/dao"
 	"github.com/go-developer/ginx-dao/define"
@@ -24,6 +25,18 @@ var (
 	// Scheme 操作实例
 	Scheme *scheme
 )
+
+// schemeList 分页查询,输出的数据结构
+//
+// Author : go_developer@163.com<张德满>
+//
+// Date : 2020/11/08 01:16:13
+type schemeList struct {
+	List            []define.Scheme `json:"list"`
+	Total           int64           `json:"total"`
+	CurrentPage     int             `json:"current_page"`
+	CurrentPageSize int64           `json:"current_page_size"`
+}
 
 func init() {
 	Scheme = &scheme{}
@@ -80,4 +93,31 @@ func (s *scheme) UpdateScheme(ctx *gin.Context, schemeID uint64, schemeName stri
 		return errors.New("更新scheme信息失败")
 	}
 	return nil
+}
+
+// GetSchemeByPage 分页获取scheme列表
+//
+// Author : go_developer@163.com<张德满>
+//
+// Date : 2020/11/08 01:17:33
+func (s *scheme) GetSchemeByPage(ctx *gin.Context, page int, size int64) (schemeList, error) {
+	var (
+		err          error
+		dbSchemeList []define.Scheme
+		dbClient     *godb.DBClient
+		total        int64
+	)
+	dbClient = godb.DB.GetDBClient(ctx, false)
+	if dbSchemeList, err = dao.Scheme.GetSchemeList(dbClient, dao.SetSearchOption{Func: dao.SetSearchOptionPage, Data: page}); nil != err {
+		return schemeList{List: make([]define.Scheme, 0), CurrentPage: page, CurrentPageSize: size}, err
+	}
+	if total, err = dao.Scheme.GetSchemeCount(dbClient); nil != err {
+		return schemeList{List: make([]define.Scheme, 0), CurrentPage: page, CurrentPageSize: size}, err
+	}
+	return schemeList{
+		List:            dbSchemeList,
+		Total:           total,
+		CurrentPage:     page,
+		CurrentPageSize: size,
+	}, nil
 }
