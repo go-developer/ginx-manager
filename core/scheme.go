@@ -108,7 +108,7 @@ func (s *scheme) GetSchemeByPage(ctx *gin.Context, page int, size int64) (scheme
 		total        int64
 	)
 	dbClient = godb.DB.GetDBClient(ctx, false)
-	if dbSchemeList, err = dao.Scheme.GetSchemeList(dbClient, dao.SetSearchOption{Func: dao.SetSearchOptionPage, Data: page}); nil != err {
+	if dbSchemeList, err = dao.Scheme.GetSchemeList(dbClient, dao.SetSearchOption{Func: dao.SetSearchOptionPage, Data: page}, dao.SetSearchOption{Func: dao.SetSearchOptionSize, Data: size}); nil != err {
 		return schemeList{List: make([]define.Scheme, 0), CurrentPage: page, CurrentPageSize: size}, err
 	}
 	if total, err = dao.Scheme.GetSchemeCount(dbClient); nil != err {
