@@ -51,7 +51,7 @@ func (m *method) GetMethodByPage(ctx *gin.Context, page int, size int64) (method
 	if dbMethodList, err = dao.Method.GetMethodList(dbClient, dao.SetSearchOption{Func: dao.SetSearchOptionPage, Data: page}, dao.SetSearchOption{Func: dao.SetSearchOptionSize, Data: size}); nil != err {
 		return methodList{List: make([]define.Method, 0), CurrentPage: page, CurrentPageSize: size}, err
 	}
-	if total, err = dao.Scheme.GetSchemeCount(dbClient); nil != err {
+	if total, err = dao.Method.GetMethodCount(dbClient); nil != err {
 		return methodList{List: make([]define.Method, 0), CurrentPage: page, CurrentPageSize: size}, err
 	}
 	return methodList{
