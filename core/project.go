@@ -13,8 +13,11 @@ package core
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/go-developer/ginx-dao/dao"
 	"github.com/go-developer/ginx-dao/define"
 	"github.com/go-developer/go-util/util"
+	godb "github.com/go-developer/gorm-mysql"
+	"github.com/pkg/errors"
 )
 
 var projectInstance *Project
@@ -54,12 +57,25 @@ func (p *Project) Create(ctx *gin.Context, flag string, domain string, port uint
 	var (
 		projectData *define.Project
 		err         error
-		//masterDBClient *godb.DBClient
-		//slaveClient    *godb.DBClient
+		masterDBClient *godb.DBClient
+		slaveClient    *godb.DBClient
 	)
-	//masterDBClient = godb.DB.GetDBClient(ctx, false)
+
+	slaveClient = godb.DB.GetDBClient(ctx, true)
+
+	if projectData, err = dao.Project.GetProjectDetailByFlag(slaveClient, flag); nil != err {
+		return nil, errors.Wrap(err, "查询项目是否存在失败")
+	}
+
+	if nil != projectData {
+		return nil, errors.Wrap(errors.New("当前flag已存在,不允许重新创建"),"")
+	}
+
+	masterDBClient = godb.DB.GetDBClient(ctx, false)
 	projectData = p.buildProjectData(flag, domain, port, extra)
-	//dao.NewProjectDao().Create()
+	if err = dao.Project.Create(masterDBClient, define.DBTableProject, projectData); nil != err {
+		return nil, errors.Wrap(err, "新建项目失败")
+	}
 	return projectData, err
 }
 
